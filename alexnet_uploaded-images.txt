@@ -1,0 +1,85 @@
+Command Line Arguments:
+     dir = uploaded_images/ 
+    arch = alexnet 
+ dogfile = dognames.txt
+
+Pet Image Label Dictionary has 5 key-value pairs.
+Below are 5 of them:
+ 1 key:  German_shepherd_dog_04890.jpg  label:        german shepherd dog
+ 2 key:     German_shepherd_dog_02.jpg  label:        german shepherd dog
+ 3 key:                     Coffee.jpg  label:                           
+ 4 key:                    lion_01.jpg  label:                       lion
+ 5 key:     German_shepherd_dog_01.jpg  label:        german shepherd dog
+
+     MATCH:
+
+                    Coffee.jpg: 
+Real:                              Classifier:                       espresso
+
+                   lion_01.jpg: 
+Real:                       lion   Classifier: lion, king of beasts, Panthera leo
+
+ NOT A MATCH:
+
+ German_shepherd_dog_04890.jpg: 
+Real:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+    German_shepherd_dog_02.jpg: 
+Real:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+    German_shepherd_dog_01.jpg: 
+Real:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+# Total Images 5 # Matches: 2 # NOT Matches: 3
+
+     MATCH:
+
+                    Coffee.jpg: 
+Real:                              Classifier:                       espresso  
+PetLabelDog: 0  ClassLabelDog: 0
+
+                   lion_01.jpg: 
+Real:                       lion   Classifier: lion, king of beasts, Panthera leo  
+PetLabelDog: 0  ClassLabelDog: 0
+
+ NOT A MATCH:
+
+ German_shepherd_dog_04890.jpg: 
+Real:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian  
+PetLabelDog: 1  ClassLabelDog: 0
+
+    German_shepherd_dog_02.jpg: 
+Real:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian  
+PetLabelDog: 1  ClassLabelDog: 0
+
+    German_shepherd_dog_01.jpg: 
+Real:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian  
+PetLabelDog: 1  ClassLabelDog: 0
+
+# Total Images 5 # Matches: 2 # NOT Matches: 3
+
+ ** Statistics from calculates_results_stats() function:
+N Images:  5  N Dog Images:  3  N NotDog Images:  2 
+Pct Corr dog:   0.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+ ** Check Statistics - calculated from this function as a check:
+N Images:  5  N Dog Images:  3  N NotDog Images:  2 
+Pct Corr dog:   0.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:   0.0
+
+
+*** Results Summary for CNN Model Architecture ALEXNET ***
+N Images            :   5
+N Dog Images: 3
+N Not-Dog Images:   2
+ 
+pct_match: 40.0
+pct_correct_dogs: 0.0
+pct_correct_breed: 0.0
+pct_correct_notdogs: 100.0
+
+INCORRECT Dog/NOT Dog Assignments:
+Label:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+Label:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+Label:        german shepherd dog   Classifier: German shepherd, German shepherd dog, German police dog, alsatian
+
+** Total Elapsed Runtime: 0:0:1
