@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: Vivek Dharewa
 # DATE CREATED: 7/12/2022
-# REVISED DATE: 7/12/2022
+# REVISED DATE: 9/12/2022
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
 #          should also allow the user to be able to print out cases of misclassified
@@ -78,6 +78,7 @@ def print_results(results_dic, results_stats_dic, model,
 
     # Prints summary statistics (percentages) on Model Run
     print(" ")
+    
     for key in results_stats_dic:
         # TODO: 6b. REPLACE pass with CODE that prints out all the percentages 
         #           in the results_stats_dic dictionary. Recall that all 
@@ -121,7 +122,7 @@ def print_results(results_dic, results_stats_dic, model,
             #
             # Pet Image Label is a Dog - Classified as NOT-A-DOG -OR- 
             # Pet Image Label is NOT-a-Dog - Classified as a-DOG
-            if sum(results_dic[key][3:]) == 1:
+            if sum(results_dic[key][-3:]) == 1:
                 print("Label: {:>26}   Classifier: {:>30}".format(results_dic[key][0],
                                                           results_dic[key][1]))
 
@@ -136,7 +137,7 @@ def print_results(results_dic, results_stats_dic, model,
         for key in results_dic:
 
             # Pet Image Label is-a-Dog, classified as-a-dog but is WRONG breed
-            if ( sum(results_dic[key][3:]) == 2 and
+            if ( sum(results_dic[key][-3:]) == 2 and
                 results_dic[key][2] == 0 ):
                 print("Real: {:>26}   Classifier: {:>30}".format(results_dic[key][0],
                                                           results_dic[key][1]))

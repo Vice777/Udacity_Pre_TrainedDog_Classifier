@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: Vivek Dharewa
 # DATE CREATED: 5/12/2022                                 
-# REVISED DATE: 7/12/2022
+# REVISED DATE: 9/12/2022
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
 #           - The Image Folder as image_dir within get_pet_labels function and 
@@ -40,28 +40,50 @@ def get_pet_labels(image_dir):
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
-    # Replace None with the results_dic dictionary that you created with this
-    # function
-    results_dic = dict()
+    # Creates list of files in directory
     in_files = listdir(image_dir)
     
+    # Creates empty dictionary
+    results_dic = dict()
+   
+    # Processes through each file in the directory, extracting only the words
+    # of the file that contain the pet image label
     for idx in range(0, len(in_files), 1):
-       
+       # Skips file if starts with . (like .DS_Store of Mac OSX) because it 
+       # isn't an pet image file
        if in_files[idx][0] != ".":
            
-        low_pet_image = in_files[idx].lower()
-        word_list_pet_image = low_pet_image.split("_")
-        pet_name = ""
-        for word in word_list_pet_image:
-            if word.isalpha():
-                pet_name += word + " "
-        pet_name = pet_name.strip()
-        if in_files[idx] not in results_dic:
-            results_dic[in_files[idx]] = [pet_name]
+           # Creates temporary label variable list to hold pet label names extracted 
+           pet_label = []
 
-        else:
-            print("** Warning: Duplicate files exist in directory:",in_files[idx])
-
-   
-
+           # TODO: 2a. BELOW REPLACE pass with CODE that will process each 
+           #          filename in the in_files list to extract the dog breed 
+           #          name from the filename. Recall that each filename can be
+           #          accessed by in_files[idx]. Be certain to place the 
+           #          extracted dog breed name in the variable pet_label 
+           #          that's created as an empty string ABOVE
+           
+           # The Pet_images directory contains image name, so for better consistency 
+           # making the image name in lower case 
+           low_img_nm = in_files[idx].lower()
+           
+           # As we are only intersted in name of breed, ignoring the integer part 
+           # and collecting whole name in a list and iterating in list to obtain
+           # alphabet part of the name
+           split_words = list(low_img_nm.split("_"))
+           for word in split_words:
+               if word.isalpha():
+                   pet_label.append(word)
+           # If filename doesn't already exist in dictionary add it and it's
+           # pet label - otherwise print an error message because indicates 
+           # duplicate files (filenames)
+           if in_files[idx] not in results_dic:
+              results_dic[in_files[idx]] = pet_label
+              
+           else:
+               print("** Warning: Duplicate files exist in directory:", 
+                     in_files[idx])
+ 
+    # TODO 2b. Replace None with the results_dic dictionary that you created
+    # with this function
     return results_dic
