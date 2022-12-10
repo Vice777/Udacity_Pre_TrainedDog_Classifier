@@ -4,7 +4,7 @@
 #                                                                             
 # PROGRAMMER: Vivek Dharewa
 # DATE CREATED: 5/12/2022                                 
-# REVISED DATE: 9/12/2022
+# REVISED DATE: 10/12/2022
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
 #           - The Image Folder as image_dir within get_pet_labels function and 
@@ -74,11 +74,12 @@ def get_pet_labels(image_dir):
            for word in split_words:
                if word.isalpha():
                    pet_label.append(word)
+           label = " ".join(pet_label)
            # If filename doesn't already exist in dictionary add it and it's
            # pet label - otherwise print an error message because indicates 
            # duplicate files (filenames)
            if in_files[idx] not in results_dic:
-              results_dic[in_files[idx]] = pet_label
+              results_dic[in_files[idx]] = [label]
               
            else:
                print("** Warning: Duplicate files exist in directory:", 

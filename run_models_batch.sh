@@ -1,4 +1,4 @@
-#!/bin/sh
+# !/bin/sh
 # */AIPND-revision/intropyproject-classify-pet-images/run_models_batch.sh
 #                                                                             
 # PROGRAMMER: Jennifer S.
